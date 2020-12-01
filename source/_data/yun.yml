@@ -2,6 +2,11 @@ avatar:
   url: /images/psc2.png # 你的头像图片地址
   rounded: true
   opacity: 1
+  mickey_mouse: false
+  status:
+    enable: true
+    emoji: 😊
+    message: 欢迎呀~
   
   # UI
 banner:
@@ -15,3 +20,85 @@ banner:
   go_down:
     enable: true
     icon: icon-arrow-down-s-line
+    
+social:
+  - name: QQ
+    # https://isux.tencent.com/wp-content/uploads/2016/05/20160512101222609.pdf
+    link: http://wpa.qq.com/msgrd?v=3&uin=&site=qq&menu=yes
+    icon: icon-qq-line
+    color: "#12B7F5"
+  - name: GitHub
+    link: https://github.com/mu-xiao-li
+    icon: icon-github-line
+    color: "#181717"
+  - name: 微博(暂无)
+    link: 
+    icon: icon-weibo-line
+    color: "#E6162D"
+  - name: 豆瓣(暂无)
+    link: 
+    icon: icon-douban-line
+    color: "#007722"
+  - name: 网易云音乐(暂无)
+    link: 
+    icon: icon-netease-cloud-music-line
+    color: "#C10D0C"
+  - name: 知乎(暂无)
+    link: 
+    icon: icon-zhihu-line
+    color: "#0084FF"
+  - name: 哔哩哔哩动画
+    link: https://space.bilibili.com/135445272
+    icon: icon-bilibili-line
+    color: "#FF8EB3"
+  - name: 微信公众号(暂无)
+    link: 
+    icon: icon-wechat-2-line
+    color: "#1AAD19"
+  - name: Twitter(暂无)
+    link: 
+    icon: icon-twitter-line
+    color: "#1da1f2"
+
+notice:
+  enable: true
+  content: ~~~~~~~~~~~~~~~~
+  
+  
+# 背景图片
+bg_image:
+  enable: true
+  url: /images/36.png
+  # dark:
+  # blur: 10px # 设置背景模糊程度
+  opacity: 0.72
+  
+#搜索时图片
+search:
+  modal: true
+  bg_image: /images/52.png
+  dark_bg_image: /images/47.png
+  placeholder: "你想找些什么"
+  
+  
+#搜索引擎
+engine_search:
+  enable: false
+  
+# search
+# https://github.com/wzpan/hexo-generator-search
+local_search:
+  enable: true
+  src: /js/search/local-search.js
+  
+# 打赏
+reward:
+  enable: false
+  
+# 时间
+footer:
+  live_time:
+    enable: false
+    prefix: 本博客已萌萌哒地运行
+    suffix: (●'◡'●)
+    start_time: "2020-12-01T00:00:00"
