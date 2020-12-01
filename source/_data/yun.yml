@@ -1,0 +1,17 @@
+avatar:
+  url: /images/psc2.png # 你的头像图片地址
+  rounded: true
+  opacity: 1
+  
+  # UI
+banner:
+  enable: true
+  title: 慕小璃的小破站
+  src: /js/ui/banner.js
+  border: true
+  cloud:
+    enable: true
+    color: "white"
+  go_down:
+    enable: true
+    icon: icon-arrow-down-s-line
