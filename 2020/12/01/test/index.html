@@ -1,0 +1,330 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#C1AFBE"><meta name="author" content="慕小璃吖~"><meta name="copyright" content="慕小璃吖~"><meta name="generator" content="Hexo 5.2.0"><meta name="theme" content="hexo-theme-yun"><title>从零开始搭建一个属于自己的网站（记录学习历程） | 小璃の小窝</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.24/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_j5gk85dg4pf.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>document.addEventListener("DOMContentLoaded", () => {
+  [".post-card",".post-content img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+});
+</script><link class="aplayer-style-marker" rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css"><script class="aplayer-script-marker" src="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.js" defer></script><script class="meting-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1/dist/Meting.min.js" defer></script><script>document.addEventListener(
+  "pjax:success",
+  function() {
+    if (window.aplayers) {
+      loadMeting();
+    }
+  },
+  !1
+);
+</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#C1AFBE"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+    const Yun = window.Yun || {};
+    window.CONFIG = {"hostname":"example.com","root":"/","title":"慕小璃の小窝","version":"1.5.3","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"你想找些什么","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="小璃の小窝" type="application/atom+xml"><meta name="description" content="学习目录          一个轻、快、可爱的hexo主题。   PV: Yun v1.0 - Strato | bilibili Coding 镜像: hexo-theme-yun  前言 其实该博客的搭建也是今天偶然从朋友那里得知的，通过了一上午的努力成功搭建。以下为学习文档，此外非常感谢云游君的开源。！！！！  一份详细的搭建文档和使用文档  云游君《教你如何从零开始搭建一个属于自己的网站》">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从零开始搭建一个属于自己的网站（记录学习历程）">
+<meta property="og:url" content="http://example.com/2020/12/01/test/index.html">
+<meta property="og:site_name" content="小璃の小窝">
+<meta property="og:description" content="学习目录          一个轻、快、可爱的hexo主题。   PV: Yun v1.0 - Strato | bilibili Coding 镜像: hexo-theme-yun  前言 其实该博客的搭建也是今天偶然从朋友那里得知的，通过了一上午的努力成功搭建。以下为学习文档，此外非常感谢云游君的开源。！！！！  一份详细的搭建文档和使用文档  云游君《教你如何从零开始搭建一个属于自己的网站》">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/03/23/bTmpQe6tgf35nj2.jpg">
+<meta property="og:image" content="https://www.yunyoujun.cn/images/avatar.jpg">
+<meta property="og:image" content="https://yuexiaoya.info/photo.jpg">
+<meta property="og:image" content="https://i.loli.net/2020/03/13/xzKUC1NEj5OicfA.jpg">
+<meta property="og:image" content="https://mesmerxx.github.io/girl.jpeg">
+<meta property="og:image" content="https://ddindex.github.io/images/avatar.jpg">
+<meta property="og:image" content="https://spreadwings-sky.github.io/Yun.png">
+<meta property="og:image" content="https://www.nbamax.com/images/avatar.png">
+<meta property="og:image" content="https://www.addesp.com/avatar.jpg">
+<meta property="og:image" content="https://hellsakura.github.io/images/avatar.jpg">
+<meta property="og:image" content="https://nancheng58.github.io/images/nancheng58.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/AlexZou14/CDN/img/touxiang.jpg">
+<meta property="og:image" content="https://yenpou.github.io/images/timg.jpg">
+<meta property="og:image" content="https://personalblog-1301685299.cos.ap-nanjing.myqcloud.com/MyBlog-Images/Personal-Info/Avatar.jpg">
+<meta property="og:image" content="https://kumybryce.gitee.io/myblog/img/favicon.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/imoshanghua/file/img/avatar.jpg">
+<meta property="og:image" content="https://gitee.com/Renen/blogpic/raw/master/sources/BlogAvatar.jpg">
+<meta property="og:image" content="https://myperfect.work/image/20161015094748_YFfPV.jpeg">
+<meta property="og:image" content="https://q1.qlogo.cn/g?b=qq&nk=1935576264&s=100">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Pakchoi1/image-host/blog/avatar.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MEMZSONBILI/PicGoBed@master/images/20200625174516.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/27/N63K8e.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/xmuli/xmuliPic@pic/2020/xmuli_yj_256px.png">
+<meta property="og:image" content="https://rogeroger.oss-cn-beijing.aliyuncs.com/img/rogeryu.jpeg">
+<meta property="og:image" content="https://avatars0.githubusercontent.com/u/35419343">
+<meta property="article:published_time" content="2020-12-01T08:36:55.000Z">
+<meta property="article:modified_time" content="2020-12-02T07:58:59.014Z">
+<meta property="article:author" content="慕小璃吖~">
+<meta property="article:tag" content="教程">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="分享">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/03/23/bTmpQe6tgf35nj2.jpg"><script src="/js/ui/mode.js"></script></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="慕小璃吖~"><img width="96" loading="lazy" src="https://i.loli.net/2020/12/02/clpv1EVfTMPuWK7.png" alt="慕小璃吖~"><span class="site-author-status" title="欢迎呀~">😊</span></a><div class="site-author-name"><a href="/about/">慕小璃吖~</a></div><a class="site-name" href="/about/site.html">小璃の小窝</a><sub class="site-subtitle">Every day is good</sub><div class="site-desciption">保持独立思考，不卑不亢，长成自己想要的样子。</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">5</span></a></div><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">4</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">9</span></a></div><a class="site-state-item hty-icon-button" href="/about/#comment" title="留言板"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-clipboard-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1821359837&amp;site=qq&amp;menu=yes" title="QQ" target="_blank" style="color:#12B7F5"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-qq-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/mu-xiao-li" title="GitHub" target="_blank" style="color:#181717"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" title="微博(暂无)" target="_blank" style="color:#E6162D"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-weibo-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" title="豆瓣(暂无)" target="_blank" style="color:#007722"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-douban-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://music.163.com/#/user/home?id=293403066" title="网易云音乐" target="_blank" style="color:#C10D0C"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-netease-cloud-music-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" title="知乎(暂无)" target="_blank" style="color:#0084FF"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-zhihu-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://space.bilibili.com/135445272" title="哔哩哔哩动画" target="_blank" style="color:#FF8EB3"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-bilibili-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" title="微信公众号(暂无)" target="_blank" style="color:#1AAD19"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-wechat-2-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" title="Twitter(暂无)" target="_blank" style="color:#1da1f2"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-twitter-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="我的小伙伴们" style="color:dodgerblue"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-genderless-line"></use></svg></a><a class="links-item hty-icon-button" href="/girls/" title="那些追过的番" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-women-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E7%9B%AE%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">学习目录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E5%89%8D%E5%87%86%E5%A4%87"><span class="toc-number">1.2.</span> <span class="toc-text">提前准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E5%AE%9A%E8%A6%81%E8%AE%B0%E4%BD%8F%E7%9A%84%E5%91%BD%E4%BB%A4"><span class="toc-number">1.3.</span> <span class="toc-text">一定要记住的命令</span></a></li></ol></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article"><link itemprop="mainEntityOfPage" href="http://example.com/2020/12/01/test/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="慕小璃吖~"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="小璃の小窝"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">从零开始搭建一个属于自己的网站（记录学习历程）</h1><div class="post-meta"><div class="post-time" style="display:block"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="创建时间：2020-12-01 16:36:55" itemprop="dateCreated datePublished" datetime="2020-12-01T16:36:55+08:00">2020-12-01</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-2-line"></use></svg></span> <time title="修改时间：2020-12-02 15:58:59" itemprop="dateModified" datetime="2020-12-02T15:58:59+08:00">2020-12-02</time></div><span class="post-count"><span class="post-symbolcount"><span class="post-meta-item-icon" title="本文字数"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-file-word-line"></use></svg></span> <span title="本文字数">494</span><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="阅读时长"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-timer-line"></use></svg></span> <span title="阅读时长">1m</span></span></span><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-line"></use></svg></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category" href="/categories/%E5%B0%8F%E7%92%83%E7%9A%84%E6%95%99%E7%A8%8B/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">小璃的教程</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag" href="/tags/%E6%95%99%E7%A8%8B/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">教程</span></a><a class="tag" href="/tags/Hexo/" style="--text-color:#0E83CD"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">Hexo</span></a><a class="tag" href="/tags/%E5%88%86%E4%BA%AB/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">分享</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body" style="--smc-primary:#C1AFBE;"><h1 id="学习目录"><a href="#学习目录" class="headerlink" title="学习目录"></a>学习目录</h1>
+    <div id="aplayer-dTLGtoxA" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="28798705" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#C20C0C"
+    ></div>
+
+
+<p><img src="https://i.loli.net/2020/03/23/bTmpQe6tgf35nj2.jpg" alt="index-preview.jpg" loading="lazy"></p>
+<blockquote>
+<p>一个轻、快、可爱的hexo主题。</p>
+</blockquote>
+<ul>
+<li>PV: <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV17t4y1S7tz">Yun v1.0 - Strato | bilibili</a></li>
+<li>Coding 镜像: <a target="_blank" rel="noopener" href="https://yunyoujun.coding.net/public/hexo-theme-yun/hexo-theme-yun/git/files">hexo-theme-yun</a></li>
+</ul>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>其实该博客的搭建也是今天偶然从朋友那里得知的，通过了一上午的努力成功搭建。以下为学习文档，此外非常感谢<a target="_blank" rel="noopener" href="https://github.com/YunYouJun">云游君</a>的开源。！！！！</p>
+</blockquote>
+<p>一份详细的搭建文档和使用文档</p>
+<ul>
+<li>云游君<code>《教你如何从零开始搭建一个属于自己的网站》</code>: <a target="_blank" rel="noopener" href="https://www.yunyoujun.cn/share/how-to-build-your-site/">https://www.yunyoujun.cn/share/how-to-build-your-site/</a></li>
+<li>云游君<code>《使用指南》</code>: <a target="_blank" rel="noopener" href="https://yun.yunyoujun.cn/guide/config.html#%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B">https://yun.yunyoujun.cn/guide/config.html#快速开始</a></li>
+</ul>
+<h2 id="提前准备"><a href="#提前准备" class="headerlink" title="提前准备"></a>提前准备</h2><ol>
+<li>首先你需要一个<a target="_blank" rel="noopener" href="https://github.com/">GitHub</a>的账号，这个不用多说邮箱注册就ok。</li>
+<li>准备好终端<code>win+r 输入cmd</code>，<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/DOS/32025?fr=aladdin">什么是DOS终端</a>。</li>
+<li>准备好你的<strong>耐心</strong>和<strong>时间</strong>~</li>
+</ol>
+<p>如果你已经使用了这个主题，可以前往 <a target="_blank" rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun/issues/3">Demo Sites | 示例站点</a> 留下你的站点，作者大大将会将其添加到下方的示例站点中。</p>
+<table align="center">
+  <tr align="center">
+    <td>
+      <a href="https://www.yunyoujun.cn" target="_blank">
+        <img width="80px" src="https://www.yunyoujun.cn/images/avatar.jpg"/ loading="lazy">
+        <br />
+        <sub title="希望能成为一个有趣的人">云游君的小站</sub>  
+      </a>
+    </td>
+    <td>
+      <a href="https://yuexiaoya.info" target="_blank">
+        <img width="80px" src="https://yuexiaoya.info/photo.jpg" alt/ loading="lazy">
+        <br />
+        <sub title="当然是用来记录历程啊，不好看怎么行！">落梅听风雪</sub>
+      </a>
+    </td>
+    <td>
+      <a href="https://blog.sernikki.cn/" target="_blank">
+        <img width="80px" src="https://i.loli.net/2020/03/13/xzKUC1NEj5OicfA.jpg"/ loading="lazy">
+        <br />
+        <sub title="有瑕人无玉">神崎日照の小窝</sub>
+      </a>
+    </td>
+    <td>
+      <a href="https://mesmerxx.github.io/" target="_blank">
+        <img width="80px" src="https://mesmerxx.github.io/girl.jpeg"/ loading="lazy">
+        <br />
+        <sub title="ヾ(❀╹◡╹)ﾉ~">mesmerxx</sub>
+      </a>
+    </td>
+    <td>
+      <a href="https://ddindex.github.io/" target="_blank">
+        <img width="80px" src="https://ddindex.github.io/images/avatar.jpg"/ loading="lazy">
+        <br />
+        <sub title="双手抓楼上的大胸">多酱的部落格</sub>
+      </a>
+    </td>
+    <td>
+      <a href="https://spreadwings-sky.github.io/" target="_blank">
+        <img width="80px" src="https://spreadwings-sky.github.io/Yun.png"/ loading="lazy">
+        <br />
+        <sub title="浊以静之徐清，安以动之徐生">俺たちに翼はない</sub>
+      </a>
+    </td>
+    <td>
+      <a href="https://www.nbamax.com/" target="_blank">
+        <img width="80px" src="https://www.nbamax.com/images/avatar.png"/ loading="lazy">
+        <br />
+        <sub title="YouTube NBA精彩视频分享博客!">NBA·Max</sub>
+      </a>
+    </td>
+    <td>
+      <a href="https://sblog.addesp.com/" target="_blank">
+        <img width="80px" src="https://www.addesp.com/avatar.jpg"/ loading="lazy">
+        <br />
+        <sub title="记录回忆，分享笔记。">ADD-SP的博客</sub>
+      </a>
+    </td>
+  </tr>
+  <tr align="center">
+    <td>
+      <a href="https://hellsakura.github.io/" target="_blank">
+        <img width="80px" src="https://hellsakura.github.io/images/avatar.jpg"/ loading="lazy">
+        <br />
+        <sub title="我只是一条咸鱼">琉的小窝</sub>
+      </a>
+    </td>
+    <td>
+      <a href="https://nancheng58.github.io/" target="_blank">
+        <img width="80px" src="https://nancheng58.github.io/images/nancheng58.jpg"/ loading="lazy">
+        <br />
+        <sub title="我好菜啊啊啊啊啊">nancheng58</sub>
+      </a>
+    </td>
+    <td>
+      <a href="https://alexzou14.github.io/" target="_blank">
+        <img width="80px" src="https://cdn.jsdelivr.net/gh/AlexZou14/CDN/img/touxiang.jpg"/ loading="lazy">
+        <br />
+        <sub title="笔记记录，自我激励">秩同道合的博客</sub>
+      </a>
+    </td>
+    <td>
+      <a href="https://yenpou.github.io/" target="_blank">
+        <img width="80px" src="https://yenpou.github.io/images/timg.jpg"/ loading="lazy">
+        <br />
+        <sub title="今朝有酒今朝醉，明日愁来明日愁">道之遠兮</sub>
+      </a>
+    </td>
+    <td>
+      <a href="http://www.romastar.cn/" target="_blank">
+        <img width="80px" src="https://personalblog-1301685299.cos.ap-nanjing.myqcloud.com/MyBlog-Images/Personal-Info/Avatar.jpg"/ loading="lazy">
+        <br />
+        <sub title="记录我的生活经历以及学习历程~~">柠檬君的小站</sub>
+      </a>
+    </td>
+    <td>
+      <a href="http://www.kumybryce.work" target="_blank">
+        <img width="80px" src="https://kumybryce.gitee.io/myblog/img/favicon.png"/ loading="lazy">
+        <br />
+        <sub title="努力一点，再努力一点">山山的掉发历程</sub>
+      </a>
+    </td>
+    <td>
+      <a href="https://hexo.cool" target="_blank">
+        <img width="80px" src="https://cdn.jsdelivr.net/gh/imoshanghua/file/img/avatar.jpg"/ loading="lazy">
+        <br />
+        <sub title="待我熬尽一日苦，喂你一口甜！">陌上花的小栈</sub>
+      </a>
+    </td>
+    <td>
+      <a href="https://lymtics.top" target="_blank">
+        <img width="80px" src="https://gitee.com/Renen/blogpic/raw/master/sources/BlogAvatar.jpg"/ loading="lazy">
+        <br />
+        <sub title="Love You More Than I Can Say.">Lymtics</sub>
+      </a>
+    </td>
+  </tr>
+  <tr align="center">
+    <td>
+      <a href="https://myperfect.work" target="_blank">
+        <img width="80px" src="https://myperfect.work/image/20161015094748_YFfPV.jpeg"/ loading="lazy">
+        <br />
+        <sub title="记录学习历程，每天进步一点点！">南楼画角的小站</sub>
+      </a>
+    </td>
+    <td>
+      <a href="https://copur.xyz/" target="_blank">
+        <img width="80px" src="https://q1.qlogo.cn/g?b=qq&nk=1935576264&s=100"/ loading="lazy">
+        <br />
+        <sub title="记录学习历程，每天进步一点点！">乐得自在的小破站</sub>
+      </a>
+    </td>
+    <td>
+      <a href="https://blog.zjgsujz.cn" target="_blank">
+        <img width="80px" src="https://cdn.jsdelivr.net/gh/Pakchoi1/image-host/blog/avatar.jpg"/ loading="lazy">
+        <br />
+        <sub title="it萌新的进阶之路">小白菜的博客</sub>
+      </a>
+    </td>
+    <td>
+      <a href="https://edenjohnson.me" target="_blank">
+        <img width="80px" src="https://cdn.jsdelivr.net/gh/MEMZSONBILI/PicGoBed@master/images/20200625174516.jpg"/ loading="lazy">
+        <br />
+        <sub title="去探索，去发现">Eden瞎写小屋</sub>
+      </a>
+    </td>
+    <td>
+      <a href="https://chitang233.github.io/" target="_blank">
+        <img width="80px" src="https://s1.ax1x.com/2020/06/27/N63K8e.jpg"/ loading="lazy">
+        <br />
+        <sub title="只是一个普通的初中生罢了">池某的小博客</sub>
+      </a>
+    </td>
+    <td>
+      <a href="https://xmuli.tech" target="_blank">
+        <img width="80px" src="https://cdn.jsdelivr.net/gh/xmuli/xmuliPic@pic/2020/xmuli_yj_256px.png"/ loading="lazy">
+        <br />
+        <sub title="与子偕臧">偕臧的小站</sub>
+      </a>
+    </td>
+    <td>
+      <a href="https://www.rogeroger.net" target="_blank">
+        <img width="80px" src="https://rogeroger.oss-cn-beijing.aliyuncs.com/img/rogeryu.jpeg"/ loading="lazy">
+        <br />
+        <sub title="啊啊啊啊啊啊啊啊">ROGEROGER</sub>
+      </a>
+    </td>
+    <td>
+      <a href="https://leostudiooo.github.io" target="_blank">
+        <img width="80px" src="https://avatars0.githubusercontent.com/u/35419343"/ loading="lazy">
+        <br />
+        <sub title="恰同学少年，风华正茂；书生意气，挥斥方遒。">LeoStudio</sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+<h2 id="一定要记住的命令"><a href="#一定要记住的命令" class="headerlink" title="一定要记住的命令"></a>一定要记住的命令</h2><p>本地hexo服务启动命令:</p>
+<ul>
+<li>在本地测试肯定不能少的命令！！</li>
+</ul>
+<pre><code>hexo server</code></pre>
+<p>部署到GitHub Pages:</p>
+<ul>
+<li>线上更新网站~</li>
+</ul>
+<pre><code>hexo clean
+hexo deploy</code></pre>
+<p>备份文件到云端（常用）：</p>
+<ul>
+<li>这几句命令将是你以后每次备份所需要输入</li>
+</ul>
+<pre><code># 添加到缓存区
+git add -A
+git commit -m &quot;这次做了什么更改，简单描述下即可&quot;
+# 推送至远程仓库
+git push
+# 第一次提交，你可能需设置一下默认提交分支
+# git push --set-upstream origin hexo</code></pre>
+</div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>慕小璃吖~</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="http://example.com/2020/12/01/test/" title="从零开始搭建一个属于自己的网站（记录学习历程）">http://example.com/2020/12/01/test/</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> 许可协议。</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2020/12/02/replenish/" rel="prev" title="关于后续搬运学习笔记和原创博客的声明"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">关于后续搬运学习笔记和原创博客的声明</span></a></div><div class="post-nav-item"></div></div></div><div class="hty-card" id="comment"><div class="comment-tooltip text-center"><span>欢迎大家评论啊~</span><br><span>您也可以跳转 GitHub Issues 评论，若您无 GitHub 账号，可直接在下方登录账号进行评论。</span><br><a class="hty-button hty-button--raised" id="github-issues" target="_blank" rel="noopener" href="https://github.com/mu-xiao-li/mu-xiao-li.github.io//issues?q=is:issue+从零开始搭建一个属于自己的网站（记录学习历程）">GitHub Issues</a></div><div id="lv-container" data-id="city" data-uid="MTAyMC81MzMwNy8yOTc4MQ=="><script>(function(d, s) {
+  var j, e = d.getElementsByTagName(s)[0];
+  if (typeof LivereTower === 'function') { return; }
+  j = d.createElement(s);
+  j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+  j.async = true;
+  e.parentNode.insertBefore(j, e);
+})(document, 'script');</script></div></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2019 – 2021 </span><a class="with-love" id="animate" target="_blank" rel="noopener" href="https://sponsors.yunyoujun.cn" title="云游君的赞助者们"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></a><span class="author"> 慕小璃吖~</span></div><div class="powered"><span>由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v5.2.0</span><span class="footer-separator">|</span><span>主题 - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.5.3</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+  setTimeout(blog_live_time, 1000);
+  const start = new Date('2020-12-01T00:00:00');
+  const now = new Date();
+  const timeDiff = (now.getTime() - start.getTime());
+  const msPerMinute = 60 * 1000;
+  const msPerHour = 60 * msPerMinute;
+  const msPerDay = 24 * msPerHour;
+  const passDay = Math.floor(timeDiff / msPerDay);
+  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
+  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
+  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
+  display_live_time.innerHTML = " " + passDay + " 天 " + passHour + " 小时 " + passMinute + " 分 " + passSecond + " 秒";
+}
+blog_live_time();
+</script></div></footer><a class="hty-icon-button" id="goUp" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#C1AFBE" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="搜索"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-search-line"></use></svg></span></a><script>window.addEventListener("DOMContentLoaded", () => {
+  // Handle and trigger popup window
+  document.querySelector(".popup-trigger").addEventListener("click", () => {
+    document.querySelector(".popup").classList.add("show");
+    setTimeout(() => {
+      document.querySelector(".search-input").focus();
+    }, 100);
+  });
+
+  // Monitor main search box
+  const onPopupClose = () => {
+    document.querySelector(".popup").classList.remove("show");
+  };
+
+  document.querySelector(".popup-btn-close").addEventListener("click", () => {
+    onPopupClose();
+  });
+
+  window.addEventListener("keyup", event => {
+    if (event.key === "Escape") {
+      onPopupClose();
+    }
+  });
+});
+</script><script src="/js/search/local-search.js" defer></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-close-line"></use></svg></span></div><div class="search-input-container"><input class="search-input" id="local-search-input" type="text" placeholder="你想找些什么" value=""></div><div id="local-search-result"></div></div></div></body></html>
