@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>http://example.com/2021/01/11/java/java-lock/</loc>
+    <lastmod>2021-04-22</lastmod>
+  </url>
+  <url>
+    <loc>http://example.com/2021/04/21/rests/computerConfiguration/</loc>
+    <lastmod>2021-04-21</lastmod>
+  </url>
+  <url>
+    <loc>http://example.com/2020/12/04/multithreading/</loc>
+    <lastmod>2020-12-14</lastmod>
+  </url>
+  <url>
+    <loc>http://example.com/2020/12/02/replenish/</loc>
+    <lastmod>2020-12-03</lastmod>
+  </url>
+  <url>
+    <loc>http://example.com/2020/12/01/test/</loc>
+    <lastmod>2020-12-02</lastmod>
+  </url>
+</urlset> 
