@@ -12,9 +12,9 @@
   },
   !1
 );
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#C1AFBE"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/favicon.ico"><link rel="mask-icon" href="/favicon.ico" color="#C1AFBE"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
-    window.CONFIG = {"hostname":"mu-li.cn","root":"/","title":"慕小璃の小窝","version":"1.5.3","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"你想找些什么","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
+    window.CONFIG = {"hostname":"mu-li.cn","root":"/","title":"慕小璃の小窝","version":"1.5.3","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"你想找些什么","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"algolia":{"appID":"46AUPBZKO6","apiKey":"7aaf7c533853c2a274071af71d4dcbd7","indexName":"mu-li","hits":{"per_page":10}},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="小璃の小窝" type="application/atom+xml"><meta name="description" content="声明多线程对我来说可能是比较薄弱的地方（那会上课在打盹），然后实际开发中又用的比较少（其实一直都知道多线程的重要性，主要是懒），这里的话就是自己这些天对多线程问题的一些整理和自我理解。 其实内容也大多都是参考别人的文档，然后加上自己的理解。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于Java多线程的一些常问问题的刨析">
@@ -37,7 +37,7 @@
 <a id="more"></a>
 
 
-    <div id="aplayer-NUkDIeFO" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-NaXCkgSF" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="518863916" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#C20C0C"
     ></div>
 
@@ -261,4 +261,4 @@ blog_live_time();
     }
   });
 });
-</script><script src="/js/search/local-search.js" defer></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-close-line"></use></svg></span></div><div class="search-input-container"><input class="search-input" id="local-search-input" type="text" placeholder="你想找些什么" value=""></div><div id="local-search-result"></div></div></div></body></html>
+</script><script defer src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script><script defer src="https://cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script><script defer src="/js/search/algolia-search.js"></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-close-line"></use></svg></span></div><div class="search-input-container"></div><div class="algolia-results"><div id="algolia-stats"></div><div id="algolia-hits"></div><div class="algolia-pagination" id="algolia-pagination"></div></div></div></div></body></html>
