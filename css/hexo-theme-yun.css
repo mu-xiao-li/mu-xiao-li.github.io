@@ -2034,7 +2034,7 @@ input {
   padding-inline-start: 0;
 }
 .search-popup {
-  background-image: url("https://6865-hello-cloudbase-7gshsb80a026bbb2-1305684047.tcb.qcloud.la/imges/4747.png?sign=60cbc9b47d2dc5a7f40bb0b9428abbe2&t=1621498852");
+  background-image: url("https://cdn.jsdelivr.net/gh/mu-xiao-li/mu-xiao-li.github.io/images/47.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -2192,7 +2192,7 @@ input {
     background-image: none;
   }
   :root:not([data-user-color-scheme]) .search-popup {
-    background-image: url("https://6865-hello-cloudbase-7gshsb80a026bbb2-1305684047.tcb.qcloud.la/imges/5252.png?sign=ee5be79110fec951490d93545fea14c5&t=1621497872");
+    background-image: url("https://cdn.jsdelivr.net/gh/mu-xiao-li/mu-xiao-li.github.io/images/52.png");
   }
   :root:not([data-user-color-scheme]) .post-title-link {
     color: #d4c7d1;
@@ -2271,7 +2271,7 @@ input {
   background-image: none;
 }
 [data-user-color-scheme='dark'] .search-popup {
-  background-image: url("https://6865-hello-cloudbase-7gshsb80a026bbb2-1305684047.tcb.qcloud.la/imges/5252.png?sign=ee5be79110fec951490d93545fea14c5&t=1621497872");
+  background-image: url("https://cdn.jsdelivr.net/gh/mu-xiao-li/mu-xiao-li.github.io/images/52.png");
 }
 [data-user-color-scheme='dark'] .post-title-link {
   color: #d4c7d1;
