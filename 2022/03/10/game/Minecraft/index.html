@@ -1,0 +1,185 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#C1AFBE"><meta name="author" content="慕小璃吖~"><meta name="copyright" content="慕小璃吖~"><meta name="generator" content="Hexo 5.2.0"><meta name="theme" content="hexo-theme-yun"><title>Linux系统搭建一个我的世界 1.18.1 Forge版服务器教程 | 小璃の小窝</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.24/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_j5gk85dg4pf.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>document.addEventListener("DOMContentLoaded", () => {
+  [".post-card",".post-content img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+});
+</script><link class="aplayer-style-marker" rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css"><script class="aplayer-script-marker" src="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.js" defer></script><script class="meting-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1/dist/Meting.min.js" defer></script><script>document.addEventListener(
+  "pjax:success",
+  function() {
+    if (window.aplayers) {
+      loadMeting();
+    }
+  },
+  !1
+);
+</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/favicon.ico"><link rel="mask-icon" href="/favicon.ico" color="#C1AFBE"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+    const Yun = window.Yun || {};
+    window.CONFIG = {"hostname":"mu-li.cn","root":"/","title":"慕小璃の小窝","version":"1.5.3","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"你想找些什么","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"algolia":{"appID":"46AUPBZKO6","apiKey":"7aaf7c533853c2a274071af71d4dcbd7","indexName":"mu-li","hits":{"per_page":10}},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="小璃の小窝" type="application/atom+xml"><script>(function(){
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();</script><meta name="description" content="声明Centos7使用MCSManager9面板搭建 Minecraft(MC) Forge 1.18.1 版服务器教程，MCSManager9面板安装教程。  参考博客：使用MCSM9面板搭建 我的世界 Paper1.18.1 服务器教程 - Zeruns’s Blog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux系统搭建一个我的世界 1.18.1 Forge版服务器教程">
+<meta property="og:url" content="https://mu-li.cn/2022/03/10/game/Minecraft/index.html">
+<meta property="og:site_name" content="小璃の小窝">
+<meta property="og:description" content="声明Centos7使用MCSManager9面板搭建 Minecraft(MC) Forge 1.18.1 版服务器教程，MCSManager9面板安装教程。  参考博客：使用MCSM9面板搭建 我的世界 Paper1.18.1 服务器教程 - Zeruns’s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/03/10/muPnafV2xNtqsyS.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/03/10/JlEG4ySjUPr1Qma.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/03/10/JpS6Bm9Glsjirez.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/03/10/92WsArENM8ypDz7.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/03/10/B4zm3dxwuKXHhQY.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/03/10/5lnaPhbmOTJdr87.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/03/10/AqWLQaZH3Ct6ul5.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/03/10/3VZThtREMa5D9vC.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/03/10/CJbxQPZfyShr8sg.jpg">
+<meta property="article:published_time" content="2022-03-10T02:32:30.000Z">
+<meta property="article:modified_time" content="2022-03-10T03:31:37.889Z">
+<meta property="article:author" content="慕小璃吖~">
+<meta property="article:tag" content="游戏">
+<meta property="article:tag" content="服务器">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/03/10/muPnafV2xNtqsyS.jpg"><script src="/js/ui/mode.js"></script></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="慕小璃吖~"><img width="96" loading="lazy" src="https://i.loli.net/2020/12/02/clpv1EVfTMPuWK7.png" alt="慕小璃吖~"><span class="site-author-status" title="欢迎呀~">😊</span></a><div class="site-author-name"><a href="/about/">慕小璃吖~</a></div><a class="site-name" href="/about/site.html">小璃の小窝</a><sub class="site-subtitle">Every day is good</sub><div class="site-desciption">保持独立思考，不卑不亢，长成自己想要的样子。</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">9</span></a></div><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">8</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">16</span></a></div><a class="site-state-item hty-icon-button" href="/about/#comment" title="留言板"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-clipboard-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1821359837&amp;site=qq&amp;menu=yes" title="QQ" target="_blank" style="color:#12B7F5"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-qq-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/mu-xiao-li" title="GitHub" target="_blank" style="color:#181717"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" title="微博(暂无)" target="_blank" style="color:#E6162D"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-weibo-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" title="豆瓣(暂无)" target="_blank" style="color:#007722"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-douban-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://music.163.com/#/user/home?id=293403066" title="网易云音乐" target="_blank" style="color:#C10D0C"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-netease-cloud-music-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" title="知乎(暂无)" target="_blank" style="color:#0084FF"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-zhihu-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://space.bilibili.com/135445272" title="哔哩哔哩动画" target="_blank" style="color:#FF8EB3"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-bilibili-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" title="微信公众号(暂无)" target="_blank" style="color:#1AAD19"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-wechat-2-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" title="Twitter(暂无)" target="_blank" style="color:#1da1f2"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-twitter-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="/atom.xml" title="RSS" target="_blank" style="color:orange"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-rss-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="我的小伙伴们" style="color:dodgerblue"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-genderless-line"></use></svg></a><a class="links-item hty-icon-button" href="/girls/" title="那些追过的番" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-women-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E"><span class="toc-number">1.</span> <span class="toc-text">声明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87"><span class="toc-number">1.1.</span> <span class="toc-text">准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MCSM9%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.2.</span> <span class="toc-text">MCSM9介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85JAVA%E7%8E%AF%E5%A2%83"><span class="toc-number">1.3.</span> <span class="toc-text">安装JAVA环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E5%BC%80%E6%94%BE"><span class="toc-number">1.4.</span> <span class="toc-text">端口开放</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E9%9D%A2%E6%9D%BF"><span class="toc-number">1.5.</span> <span class="toc-text">安装面板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAMC%E6%9C%8D%E5%8A%A1%E7%AB%AF"><span class="toc-number">1.6.</span> <span class="toc-text">创建MC服务端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%85"><span class="toc-number">1.7.</span> <span class="toc-text">补充</span></a></li></ol></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article"><link itemprop="mainEntityOfPage" href="https://mu-li.cn/2022/03/10/game/Minecraft/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="慕小璃吖~"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="小璃の小窝"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">Linux系统搭建一个我的世界 1.18.1 Forge版服务器教程</h1><div class="post-meta"><div class="post-time" style="display:block"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="创建时间：2022-03-10 10:32:30" itemprop="dateCreated datePublished" datetime="2022-03-10T10:32:30+08:00">2022-03-10</time></div><span class="post-count"><span class="post-symbolcount"><span class="post-meta-item-icon" title="本文字数"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-file-word-line"></use></svg></span> <span title="本文字数">1.6k</span><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="阅读时长"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-timer-line"></use></svg></span> <span title="阅读时长">5m</span></span></span><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-line"></use></svg></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category" href="/categories/%E6%B8%B8%E6%88%8F%E7%9B%B8%E5%85%B3/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">游戏相关</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag" href="/tags/%E6%B8%B8%E6%88%8F/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">游戏</span></a><a class="tag" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">服务器</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body" style="--smc-primary:#C1AFBE;"><h1 id="声明"><a href="#声明" class="headerlink" title="声明"></a><strong>声明</strong></h1><p>Centos7使用MCSManager9面板搭建 Minecraft(MC) Forge 1.18.1 版服务器教程，MCSManager9面板安装教程。</p>
+<p><img src="https://s2.loli.net/2022/03/10/muPnafV2xNtqsyS.jpg" alt="参考博客.JPG" loading="lazy"></p>
+<p>参考博客：<a target="_blank" rel="noopener" href="https://blog.zeruns.tech/archives/656.html">使用MCSM9面板搭建 我的世界 Paper1.18.1 服务器教程 - Zeruns’s Blog</a></p>
+<a id="more"></a>
+
+
+    <div id="aplayer-sGfqwIOj" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="518863916" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#C20C0C"
+    ></div>
+
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>在教程开始前我们先说一下搭建一个服务器需要用到或者使用的基本材料以及软件。因为服务器搭建本身属于程序员比较熟悉的领域，所以一些地方不会去做过多的解释，但在某些个人想法上可能会进行一些详细说明。</p>
+<blockquote>
+<p>准备材料</p>
+</blockquote>
+<ul>
+<li><p>一台足够运行3~5人游玩的服务器</p>
+<p><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>服务器的话可以自己买一台性能刚好的，也可以用家用机当服务器，但是这都不推荐，首先就是各种杂七杂八的费用堆叠以及一些日常硬件可能出现的维护问题，所以在这里更推荐大家去租一台云服务器，现在国内比较好的云服务器有腾讯云或者阿里云什么的，这里我演示的是腾讯云（凑巧最近腾讯在搞活动，可以较低加个租到一台比较好的云服务器）</p>
+<p><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>性能推荐的话，至少是<strong>2核4g</strong>内存，想省事的话可以上<strong>4核8g</strong>（目前两个我都买了，后者明显性能大于前者太多，而且价格也不贵也就200多一年）</p>
+</li>
+<li><p>可以连接Linux系统的第三方软件（这里推荐直接用云那边自己自带的）</p>
+</li>
+<li><p>安装一个简易操作的第三方面板（可以理解为宝塔之类的，免去一些在命令窗口的操作转为使用图形化界面进行）</p>
+<p><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>这里推荐使用<strong>MCSM9面板</strong>，稍后我会进行介绍。</p>
+</li>
+<li><p>提前下载好我的世界的服务端运行架包，这里可以在评论区找我要</p>
+</li>
+<li><p>大概就这些了吧（应该）</p>
+</li>
+</ul>
+<h2 id="MCSM9介绍"><a href="#MCSM9介绍" class="headerlink" title="MCSM9介绍"></a><strong>MCSM9介绍</strong></h2><p><strong>分布式，稳定可靠，开箱即用，高扩展性，支持 Minecraft 和其他少数游戏的控制面板。</strong></p>
+<p>MCSManager 面板（简称：MCSM 面板）是一款全中文，轻量级，开箱即用，多实例和支持 Docker 的 Minecraft 服务端管理面板。</p>
+<p>此软件在 Minecraft 和其他游戏社区内中已有一定的流行程度，<strong>它可以帮助你集中管理多个物理服务器</strong>，动态在任何主机上创建游戏服务端，并且提供安全可靠的多用户权限系统，可以很轻松的帮助你管理多个服务器。</p>
+<h2 id="安装JAVA环境"><a href="#安装JAVA环境" class="headerlink" title="安装JAVA环境"></a><strong>安装JAVA环境</strong></h2><p>1.18.1版服务端需要JDK17版，所以需要提前在Linux系统安装好java环境（这应该是老常客了吧）</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 下载JDK17安装包，也可以自己去官网下载，如果出错就运行命令 yum install wget</span>
+<span class="token function">wget</span> https://img.zeruns.tech/down/Java/jdk-17_linux-x64_bin.rpm
+
+<span class="token comment"># 安装JDK17</span>
+<span class="token function">rpm</span> -i jdk-17_linux-x64_bin.rpm
+
+<span class="token comment"># 测试是否安装正常，显示 java version "17.0.1" 2021-10-19 LTS 则为正常</span>
+java -version</code></pre>
+
+
+
+<h2 id="端口开放"><a href="#端口开放" class="headerlink" title="端口开放"></a>端口开放</h2><p>面板需要 23333和24444 端口。</p>
+<p>游戏服务器默认端口是 25565。</p>
+<p>如果你使用<a target="_blank" rel="noopener" href="https://www.aliyun.com/minisite/goods?taskPkg=1212cpz&pkgSid=182220&userCode=jdjc69nf">阿里云</a>，<a target="_blank" rel="noopener" href="https://curl.qcloud.com/lQSAXVLq">腾讯云</a>或者其他云服务商，<strong>请进入控制台到防火墙安全组策略，放行以上端口</strong>。</p>
+<p>或者放行全部端口，入和出方向都要（不推荐，及其不安全）</p>
+<p>这里只演示腾讯云</p>
+<p><img src="https://s2.loli.net/2022/03/10/JlEG4ySjUPr1Qma.jpg" alt="防火墙.JPG" loading="lazy"></p>
+<h2 id="安装面板"><a href="#安装面板" class="headerlink" title="安装面板"></a><strong>安装面板</strong></h2><p><strong>一行命令快速安装</strong></p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> -qO- https://cdn.jsdelivr.net/gh/MCSManager/Script/setup.sh <span class="token operator">|</span> <span class="token function">bash</span></code></pre>
+
+<ul>
+<li>执行完成后，使用命令 <code>systemctl start mcsm-&#123;web,daemon&#125;</code> 即可启动面板服务。</li>
+<li>使用<code>systemctl enable mcsm-&#123;daemon,web&#125;.service</code>来开启开机自启（不开启这个每次重启都有手动启动面板服务）</li>
+<li>面板代码与运行环境自动安装在 <code>/opt/mcsmanager/</code> 目录下。</li>
+</ul>
+<p>配置文件目录： <code>data/SystemConfig/config.json</code></p>
+<p>用户数据文件目录：<code>data/User/*.json</code></p>
+<p>远程守护进程配置文件目录：<code>data/RemoteServiceConfig/*.json</code></p>
+<p>安装完成后访问 <a target="_blank" rel="noopener" href="https://blog.zeruns.tech/">http://你服务器的ip:23333/</a> 即可进入面板。</p>
+<ul>
+<li>默认账号：root</li>
+<li>默认密码: 123456</li>
+</ul>
+<h2 id="创建MC服务端"><a href="#创建MC服务端" class="headerlink" title="创建MC服务端"></a><strong>创建MC服务端</strong></h2><p>下载Forge1.18.1服务端，下方评论索要。</p>
+<p>在面板创建一个服务实例</p>
+<p><img src="https://s2.loli.net/2022/03/10/JpS6Bm9Glsjirez.jpg" alt="创建实例.JPG" loading="lazy"></p>
+<p>选择<strong>Java版Minecraft服务端</strong>。</p>
+<p><img src="https://s2.loli.net/2022/03/10/92WsArENM8ypDz7.jpg" alt="选择.JPG" loading="lazy"></p>
+<p>创建方式选择<strong>上传服务端压缩包</strong></p>
+<p><img src="https://s2.loli.net/2022/03/10/B4zm3dxwuKXHhQY.jpg" alt="压缩包.JPG" loading="lazy"></p>
+<p>自己输入一个想设置的名称，然后点下面的上传服务端软件选择下载的服务端压缩包文件</p>
+<p>启动指令输入：<code>bash run.sh</code></p>
+<p><img src="https://s2.loli.net/2022/03/10/5lnaPhbmOTJdr87.jpg" alt="配置.JPG" loading="lazy"></p>
+<p>完成后，就成功在你的服务器搭建服务了，这时你只需要启动服务就可以了，如果不出意外，就已经完成了服务器的搭建。</p>
+<p>点击<strong>开启实例</strong>，开启我的世界服务器</p>
+<p><img src="https://s2.loli.net/2022/03/10/AqWLQaZH3Ct6ul5.jpg" alt="开启.JPG" loading="lazy"></p>
+<p>上图中不同按钮的功能介绍：</p>
+<p><strong>特定配置：</strong>可以配置服务器的一些游戏配置，如服务器最多人数，服务器端口等（如果为默认的 25565，玩家在输入服务器地址的时候不用加上端口号）</p>
+<p><strong>文件管理：</strong>后续添加mod，或者编辑服务器存储的数据时会用到，简化了命令窗口的过程。</p>
+<p><strong>实例设置：</strong>设置一些启动参数</p>
+<p>后续需要添加插件就点击控制台的<strong>文件管理</strong>，进到服务端目录下的<strong>mods</strong>目录，把插件上传上去然后重启服务端就行。</p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a><strong>补充</strong></h2><p><img src="https://s2.loli.net/2022/03/10/3VZThtREMa5D9vC.jpg" alt="配置文件.JPG" loading="lazy"></p>
+<p>配置文件中,<code>run.sh</code>为启动程序，<code>user_jvm_args.txt</code>为jvm的内存分配（不配置的话系统会默认动态分配）</p>
+<p>如我给jvm分配的内存为2.5g~5.8g（服务器8g内存），大家自己可以根据自身服务器配置调整</p>
+<p><img src="https://s2.loli.net/2022/03/10/CJbxQPZfyShr8sg.jpg" alt="jvm.JPG" loading="lazy"></p>
+<p>======================================分割线======================================</p>
+<p>服务器出现延迟超过60秒时会自动停止服务，大家可以在<code>server.properties</code>中的<code>max-tick-time</code>配置为-1（不建议，因为一般服务器出现大延迟基本就是算力不够，可以考虑对服务器进行一些优化，如删减mod、更改某些配置、升级服务器等）</p>
+<p>配置玩家管理员权限：op 玩家名（在实例的控制台）</p>
+<p>（有问题可以在评论区问）</p>
+<p>待补充….</p>
+</div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>慕小璃吖~</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="https://mu-li.cn/2022/03/10/game/Minecraft/" title="Linux系统搭建一个我的世界 1.18.1 Forge版服务器教程">https://mu-li.cn/2022/03/10/game/Minecraft/</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> 许可协议。</li></ul></section></article><div class="post-nav"><div class="post-nav-item"></div><div class="post-nav-item"><a class="post-nav-next" href="/2021/08/19/overhead/overhead-one/" rel="next" title="小窝の顶置导航"><span class="post-nav-text">小窝の顶置导航</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div class="hty-card" id="comment"><div class="comment-tooltip text-center"><span>欢迎大家评论啊~</span><br><span>您也可以跳转 GitHub Issues 评论，若您无 GitHub 账号，可直接在下方填写信息后进行评论。</span><br><span>注意：邮箱会识别qq邮箱或者注册了gravatar的邮箱账号的头像信息（国内访问不支持gravatar可能要科学上网）~</span><br><a class="hty-button hty-button--raised" id="github-issues" target="_blank" rel="noopener" href="https://github.com/mu-xiao-li/mu-xiao-li.github.io//issues?q=is:issue+Linux系统搭建一个我的世界 1.18.1 Forge版服务器教程">GitHub Issues</a></div><div id="tcomment"></div><script src="https://cdn.jsdelivr.net/npm/twikoo@latest/dist/twikoo.all.min.js"></script><script>const twikooConfig = {"enable":true,"envId":"hello-cloudbase-7gshsb80a026bbb2","visitor":true}
+twikooConfig.el = '#tcomment'
+twikoo.init(twikooConfig)</script></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2019 – 2022 </span><a class="with-love" id="animate" target="_blank" rel="noopener" href="https://sponsors.yunyoujun.cn" title="云游君的赞助者们"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></a><span class="author"> 慕小璃吖~</span></div><div class="powered"><span>由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v5.2.0</span><span class="footer-separator">|</span><span>主题 - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.5.3</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+  setTimeout(blog_live_time, 1000);
+  const start = new Date('2020-12-01T00:00:00');
+  const now = new Date();
+  const timeDiff = (now.getTime() - start.getTime());
+  const msPerMinute = 60 * 1000;
+  const msPerHour = 60 * msPerMinute;
+  const msPerDay = 24 * msPerHour;
+  const passDay = Math.floor(timeDiff / msPerDay);
+  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
+  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
+  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
+  display_live_time.innerHTML = " " + passDay + " 天 " + passHour + " 小时 " + passMinute + " 分 " + passSecond + " 秒";
+}
+blog_live_time();
+</script></div><div class="footer-support"><span>本网站由</span><a class="footer-support-logo" href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referral" target="blank" title="又拍云"><img height="30" src="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/logo/upyun-logo.png" alt="又拍云"></a><span>提供 CDN 加速</span></div></footer><a class="hty-icon-button" id="goUp" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#C1AFBE" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="搜索"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-search-line"></use></svg></span></a><script>window.addEventListener("DOMContentLoaded", () => {
+  // Handle and trigger popup window
+  document.querySelector(".popup-trigger").addEventListener("click", () => {
+    document.querySelector(".popup").classList.add("show");
+    setTimeout(() => {
+      document.querySelector(".search-input").focus();
+    }, 100);
+  });
+
+  // Monitor main search box
+  const onPopupClose = () => {
+    document.querySelector(".popup").classList.remove("show");
+  };
+
+  document.querySelector(".popup-btn-close").addEventListener("click", () => {
+    onPopupClose();
+  });
+
+  window.addEventListener("keyup", event => {
+    if (event.key === "Escape") {
+      onPopupClose();
+    }
+  });
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script><script defer src="https://cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script><script defer src="https://cdn.jsdelivr.net/gh/mu-xiao-li/mu-xiao-li.github.io/js/search/algolia-search.js"></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-close-line"></use></svg></span></div><div class="search-input-container"></div><div class="algolia-results"><div id="algolia-stats"></div><div id="algolia-hits"></div><div class="algolia-pagination" id="algolia-pagination"></div></div></div></div><script src="https://cdn.jsdelivr.net/npm/live2d-widget@^3.1.3/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"https://cdn.jsdelivr.net/npm/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"dialog":{"enable":true,"hitokoto":true},"log":false});</script></body></html>
